@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css?family=Martel+Sans|Sigmar+One&display=swap');
+
+
+$primary-font:'Martel Sans', sans-serif;
+$secondary-font: 'Sigmar One', cursive;
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $primary-font;
+}
+body{
+  overflow-x: hidden;
+  overflow-y: visible;
+  background-color: rgb(1, 2, 36);
+}
+
+#main{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-image: url('./img/eagle.png');
+  min-height: 100vh;
+  background-position: bottom right;
+  background-repeat: no-repeat;
+  background-size: calc(100vw/2);
+
+  @media screen and (min-width: 570px) and (max-width: 1200px) {
+    &{
+      background-size: calc(100vw/1.3);
+      background-position: center right;
+    }
+  }
+  @media screen and (max-width: 569px) {
+    &{
+      background-image: none;
+    }
+  }
+  
+  h1{
+    margin: 30px;
+    color:#fff;
+    font-family: $secondary-font;
+    text-align: center;
+    
+    span{
+      font-family: inherit;
+    }
+
+    i{
+      color: rgb(255, 208, 0);
+    }
+  }
+  #controllers{
+    margin: 20px 0 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 30%;
+    min-width: 350px;
+
+    .MuiFilledInput-underline::after{
+      border-bottom-color: rgb(255, 208, 0);
+    }
+
+    button{
+      margin-left:10px
+    }
+
+    #search{
+      background-color: #fff;
+      border-radius: 4px;
+      width: 150px;
+    }
+  }
+
+  #movies{
+    margin: 20px auto;
+    width: 85%;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+
+    .movie{
+      width: 200px;
+      background-color: rgba(255,255,255,0.9);
+      margin: 15px;
+      padding: 10px;
+      border-radius: 6px;
+      transition: all 300ms ease-in-out;
+
+      &:hover{
+        box-shadow: 4px 4px 40px rgb(255, 208, 0);
+      }
+      
+      h2{
+        cursor: pointer;
+        padding: 8px;
+
+        &:hover{
+          background-color: rgb(255, 208, 0);
+          outline: 2px solid rgb(212, 174, 2);
+        }
+      }
+      p{
+        margin-top: 10px
+      }
+    }
+  }
+  .movie-description{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    z-index: 100;
+
+    .description-container{
+      margin: auto;
+      width: 85%;
+      max-width: 800px;
+      min-width: 300px;
+      min-height: 80vh;
+      height: 500px;
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 30px 0 30px 0;
+      position: relative;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #fff;
+      background-image: url('./img/bb8.png');
+      background-size: 50%;
+      background-position: bottom right;
+      background-repeat: no-repeat;
+      background-blend-mode: darken;
+
+      button{
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+      .MuiExpansionPanel-root{
+        box-shadow: 4px 4px 40px #000;
+        border-radius: 8px;
+        margin: 10px 0 10px 0;
+        width: 80%;
+
+        &::before{
+          background-color: rgba(0,0,0,0);
+        }
+      }
+      .MuiExpansionPanelSummary-root{
+        background-color: rgba(1, 2, 36, 0.8);
+        color:  rgb(255, 208, 0);
+        border-radius: inherit;
+      }
+
+      .film-content{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 15px;
+
+        &.about{
+          grid-template-columns: 1fr;
+        }
+
+        @media screen and (max-width:720px){
+          &{
+            grid-template-columns: 1fr;
+          }
+        }
+
+        ul{
+          list-style-position: inside;
+          
+          li{
+            margin: 5px 0 5px 0;
+          }
+        }
+      }
+
+      img{
+        position: absolute;
+        width: 180px;
+        height: 250px;
+        bottom: 20px;
+        right: 20px;
+        z-index: -1;
+      }
+    }
+  }
+}
