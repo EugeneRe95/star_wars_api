@@ -26,6 +26,7 @@ export class Movie extends Component {
         })
     }
     componentDidMount(){
+        //Fetching film info
         this.fetch(this.props.starships, 'starships');
         this.fetch(this.props.planets, 'planets');
         this.fetch(this.props.vehicles, 'vehicles');
@@ -33,6 +34,7 @@ export class Movie extends Component {
         this.fetch(this.props.characters, 'characters');
         this.setState({about: this.props.about})
     }
+    // Open modal for displaying film info
     showDescription(){
         this.props.showDescription(this.state)
     }

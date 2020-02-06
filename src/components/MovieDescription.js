@@ -15,6 +15,7 @@ export class MovieDescription extends Component {
             <div className="movie-description" style={{ display: this.props.display }}>
                 <div className="description-container animated fadeInUp">
                 <Button onClick={this.props.close} variant="contained" color="secondary" size="small">Close</Button>
+
                     <ExpansionPanel>
                         <ExpansionPanelSummary
                             // expandIcon={}
@@ -29,6 +30,7 @@ export class MovieDescription extends Component {
                             </div>
                         </ExpansionPanelDetails>
                     </ExpansionPanel>
+
                     <ExpansionPanel>
                         <ExpansionPanelSummary
                             // expandIcon={}
@@ -58,6 +60,7 @@ export class MovieDescription extends Component {
                             </div>
                         </ExpansionPanelDetails>
                     </ExpansionPanel>
+
                     <ExpansionPanel>
                         <ExpansionPanelSummary
                             // expandIcon={}
@@ -88,6 +91,7 @@ export class MovieDescription extends Component {
                             </div>
                         </ExpansionPanelDetails>
                     </ExpansionPanel>
+
                     <ExpansionPanel>
                         <ExpansionPanelSummary
                             // expandIcon={}
@@ -119,6 +123,7 @@ export class MovieDescription extends Component {
                             </div>
                         </ExpansionPanelDetails>
                     </ExpansionPanel>
+
                     <ExpansionPanel>
                         <ExpansionPanelSummary
                             // expandIcon={}
@@ -148,6 +153,7 @@ export class MovieDescription extends Component {
                             </div>
                         </ExpansionPanelDetails>
                     </ExpansionPanel>
+
                     <ExpansionPanel>
                         <ExpansionPanelSummary
                             // expandIcon={}
@@ -181,6 +187,7 @@ export class MovieDescription extends Component {
                             </div>
                         </ExpansionPanelDetails>
                     </ExpansionPanel>
+                    
                 </div>
             </div>
         )

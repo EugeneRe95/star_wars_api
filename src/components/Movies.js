@@ -28,14 +28,14 @@ export class Movies extends Component {
     handleChange(e) {
         this.setState({ [e.target.name]: e.target.value })
     }
+    //Display modal
     showDescription(state) {
-        document.querySelector('body').style.overflowY = 'hidden';
         this.setState({ showModal: 'flex', modalContent: state })
     }
     closeModal() {
-        document.querySelector('body').style.overflowY = 'visible';
         this.setState({ showModal: 'none' })
     }
+    //Sorting films by name
     sort() {
         this.setState({ sort: !this.state.sort })
         const sorted = this.state.movies.sort((a, b) => {
@@ -49,6 +49,7 @@ export class Movies extends Component {
         });
         this.setState({ movies: sorted })
     }
+    //Fetching all films
     componentDidMount() {
         axios.get('https://swapi.co/api/films/')
             .then(res => {
@@ -62,11 +63,12 @@ export class Movies extends Component {
             <React.Fragment>
                 <h1>{title.split(' ').map((item, index)=>{
                 return <span className="animated rotateInDownLeft" style={{animationDelay: index*200+'ms', display: 'inline-block'}}>{item}&nbsp;</span>
-                    })} <i className="fab fa-old-republic"></i></h1>
+                    })} <i className="fab fa-old-republic animated fadeIn delay-1s"></i></h1>
                 <div id="controllers">
                     <TextField id="search" label="Movie Title" variant="filled" name="search" size="small" onChange={this.handleChange} value={this.state.search} />
                     <Button variant="contained" color="primary" size="large" onClick={this.sort} style={{ backgroundColor: 'rgb(255, 208, 0)', color: '#000' }}>Sort</Button>
                 </div>
+                {/* Displaying movies */}
                 <div id="movies">
                     {(this.state.spinner) ? <h1 style={{ color: "rgb(255, 208, 0)", fontSize: "60px" }}>Loading <i className="fas fa-spinner fa-spin"></i></h1> : null}
                     {this.state.movies.map((item) => {
@@ -75,6 +77,7 @@ export class Movies extends Component {
                             <Movie showDescription={this.showDescription} key={item.episode_id} title={item.title} director={item.director} producer={item.producer} release={item.release_date} about={item.opening_crawl} planets={item.planets} starships={item.starships} vehicles={item.vehicles} characters={item.characters} species={item.species} />;
                     })}
                 </div>
+                {/* Displaying Modal window with relative film info (content)*/}
                 {(this.state.showModal === 'flex') ? <MovieDescription content={this.state.modalContent} display={this.state.showModal} close={this.closeModal.bind(this)} /> : null}
             </React.Fragment>
         )
