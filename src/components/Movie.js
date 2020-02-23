@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 
-
 export class Movie extends Component {
     constructor(props){
         super(props)
@@ -40,11 +39,11 @@ export class Movie extends Component {
     }
     render() {
         return (
-                <div className="movie animated fadeInUp">
+                <div className="movie">
                     <h2 onClick={this.showDescription.bind(this)}>{this.props.title}</h2>
-                    <p className="animated fadeIn delay-1s"><b>Director:</b> {this.props.director}</p>
-                    <p className="animated fadeIn delay-1s"><b>Producers:</b> {this.props.producer}</p>
-                    <p className="animated fadeIn delay-1s"><b>Release:</b> {this.props.release}</p>
+                    <p><b>Director:</b> {this.props.director}</p>
+                    <p><b>Producers:</b> {this.props.producer}</p>
+                    <p><b>Release:</b> {this.props.release}</p>
                 </div>
         )
     }
